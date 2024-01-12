@@ -89,6 +89,7 @@ export default {
         // 获取随机数
         const getRandomNum = () => {
             const num = Math.floor(Math.random() * state.prizeList.length);
+            console.log(num);
             return num;
         }
         const start = () => {
