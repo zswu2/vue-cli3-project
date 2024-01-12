@@ -88,11 +88,7 @@ export default {
         })
         // 获取随机数
         const getRandomNum = () => {
-
-
-
-
-            
+            // 删除多余的空行
             const num = Math.floor(Math.random() * state.prizeList.length);
             return num;
         }
