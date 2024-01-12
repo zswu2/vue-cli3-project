@@ -88,6 +88,11 @@ export default {
         })
         // 获取随机数
         const getRandomNum = () => {
+
+
+
+
+            
             const num = Math.floor(Math.random() * state.prizeList.length);
             return num;
         }
@@ -97,7 +102,7 @@ export default {
                 console.log('开始抽奖，后台请求中奖奖品')
                 // 请求返回的奖品编号 这里使用随机数
                 let prizeId = getRandomNum()
-                console.log('中奖ID>>>', prizeId, state.prizeList[prizeId]);
+                console.log('中奖ID>>>', prizeId, state.prizeList[prizeId]); 
                 if (state.totalNumber % 5 != 0)  {
                     const numbers = [3,3];
                     const randomIndex = Math.floor(Math.random() * numbers.length);
