@@ -40,7 +40,7 @@ export default {
                 { name: '做家务', pic: clean }
             ], // 后台配置的奖品数据
             isRunning: false, // 是否正在抽奖
-            baseRunAngle: 360 * 5, // 总共转动角度 至少5圈
+            baseRunAngle: 360 * 10, // 总共转动角度 至少5圈
             prizeId: 0, // 中奖id
             totalNumber: 1 // 参与次数
         });
@@ -98,7 +98,7 @@ export default {
                 // 请求返回的奖品编号 这里使用随机数
                 let prizeId = getRandomNum()
                 console.log('中奖ID>>>', prizeId, state.prizeList[prizeId]);
-                if (state.totalNumber % 3 != 0)  {
+                if (state.totalNumber % 5 != 0)  {
                     const numbers = [3,3];
                     const randomIndex = Math.floor(Math.random() * numbers.length);
                     prizeId = numbers[randomIndex];
