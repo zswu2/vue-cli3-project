@@ -88,6 +88,11 @@ export default {
         })
         // 获取随机数
         const getRandomNum = () => {
+
+
+
+
+            
             const num = Math.floor(Math.random() * state.prizeList.length);
             return num;
         }
@@ -98,12 +103,12 @@ export default {
                 // 请求返回的奖品编号 这里使用随机数
                 let prizeId = getRandomNum()
                 console.log('中奖ID>>>', prizeId, state.prizeList[prizeId]);
-                if (state.totalNumber % 3 != 0)  {
-                    const numbers = [3,3];
-                    const randomIndex = Math.floor(Math.random() * numbers.length);
-                    prizeId = numbers[randomIndex];
-                    console.log('当前参与次数：', state.totalNumber);
-                }
+                // if (state.totalNumber % 300 != 0)  {
+                //     const numbers = [3,3];
+                //     const randomIndex = Math.floor(Math.random() * numbers.length);
+                //     prizeId = numbers[randomIndex];
+                //     console.log('当前参与次数：', state.totalNumber);
+                // }
                 state.totalNumber = state.totalNumber + 1;
                 if(state.totalNumber > 100){
                     state.totalNumber = 1;
