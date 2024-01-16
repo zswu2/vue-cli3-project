@@ -82,6 +82,7 @@ export default {
             prizeWrap.value.style = `${bgColor.value} transform: rotate(-${rotateAngle.value / 2}deg)`
         })
         onUnmounted(() => {
+            console.log(prizeWrap.value);
             if(prizeWrap.value) {
                 prizeWrap.value.removeEventListener('transitionend', stopRun);
             }
@@ -90,6 +91,7 @@ export default {
         const getRandomNum = () => {
             // 删除多余的空行
             const num = Math.floor(Math.random() * state.prizeList.length);
+            console.log(num);
             return num;
         }
         const start = () => {
