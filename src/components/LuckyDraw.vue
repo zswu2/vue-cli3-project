@@ -82,7 +82,7 @@ export default {
             prizeWrap.value.style = `${bgColor.value} transform: rotate(-${rotateAngle.value / 2}deg)`
         })
         onUnmounted(() => {
-            console.log(prizeWrap.value);
+            console.log(prizeWrap.value + "111111");
             if(prizeWrap.value) {
                 prizeWrap.value.removeEventListener('transitionend', stopRun);
             }
