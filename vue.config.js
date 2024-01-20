@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path')
 // 是否为生产环境
 const isProduction = process.env.NODE_ENV !== 'development'
@@ -98,17 +99,28 @@ module.exports = defineConfig({
             }
         }
       }
-    }
 
-    plugins: [
-      //开启打包计时
-      new SpeedMeasurePlugin(),
-      new HappyPack({
+      // 打包环境去掉console.log
+      config.optimization = {
+        minimizer: [
+          new TerserPlugin({
+            terserOptions: {
+              compress: {
+                drop_console: true, // 移除console.log
+                drop_debugger: false,
+              },
+            },
+          }),
+        ],
+      }
+    }
+    //开启打包计时
+    config.plugins.push(new SpeedMeasurePlugin())
+    config.plugins.push(new HappyPack({
           id:'babel',
           loaders:['babel-loader?cacheDirectory=true'],
           threadPool:happyThreadPool
-      })     
-    ]
-    
+      })
+    )    
   }
 })
